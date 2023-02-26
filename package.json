@@ -1,7 +1,8 @@
 {
-  "name": "build-python-executable",
+  "name": "python",
   "displayName": "Python",
   "description": "Build Python executables",
+  "repository": "https://github.com/DariuszLabaj/build-python-executable",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.75.0"
@@ -41,6 +42,7 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run build",
+    "build": "tsc -p ./",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
