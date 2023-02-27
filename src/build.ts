@@ -14,7 +14,7 @@ export function build() {
         }
         var filePath = vscode.workspace.getConfiguration('python.build').get<string>('filename');
         if (filePath) {
-            filename = path.join(workspacePath, filename)
+            filename = path.join(workspacePath, filename);
         }
         const pythonPath = vscode.workspace.getConfiguration('python').get<string>('defaultInterpreterPath') || 'python';
         const vEnvPath = path.join(workspacePath, '.venv');
