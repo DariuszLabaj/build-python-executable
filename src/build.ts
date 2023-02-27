@@ -44,12 +44,14 @@ export function build() {
             pyInstallerCommand += `${attributes} "${filename}"`;
         }
         vscode.window.showInformationMessage(`Running: "${pyInstallerCommand}"`);
-
-        var proc = cp.execSync(pyInstallerCommand, {cwd:workspacePath});
-        vscode.window.showInformationMessage(`Process Finished: ${proc}`);
+        try {
+            var proc = cp.execSync(pyInstallerCommand, {cwd:workspacePath});
+            vscode.window.showInformationMessage(`Process Finished without error: ${proc}`);
+        } catch (error) {
+            vscode.window.showInformationMessage(`Process Finished with error: ${error}`);
+        }
 
     } else {
         vscode.window.showErrorMessage('No workspace found.');
     }
-    vscode.window.showInformationMessage(`Script Done`);
 }
